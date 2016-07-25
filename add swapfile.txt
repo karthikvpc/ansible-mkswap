@@ -1,0 +1,14 @@
+#!/bin/bash
+#Ansible - To add swapfile
+#option1: default size of 512MB
+#option2: size as that of RAM
+
+##Creating a swap file of size 512MB on an existing partition:
+
+/bin/echo "Creating swap file..."
+/usr/bin/fallocate -l 512M /swapfile
+/bin/chmod 600 /swapfile
+/sbin/mkswap /swapfile
+/sbin/swapon /swapfile
+/bin/echo "/swapfile   none    swap    sw    0   0" >> /etc/fstab
+
